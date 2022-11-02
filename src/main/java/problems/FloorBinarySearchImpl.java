@@ -1,9 +1,14 @@
 package problems;
 
+import java.util.Arrays;
+
 public class FloorBinarySearchImpl implements Floor {
 
 	@Override
 	public Integer floor(Integer[] array, Integer x) {
+		if(array == null || array.length == 0) return null;
+
+		Arrays.sort(array);
 		return floorBinarySearch(array, x, 0, array.length - 1);
 	}
 
