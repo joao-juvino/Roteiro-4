@@ -12,9 +12,6 @@ public class GeneralSetUp {
 	public Integer[] arrayNuloTamPar;
 	public Integer[] arrayNuloTamImpar;
 
-	public Integer[] arrayNegativoNuloTamPar;
-	public Integer[] arrayNegativoNuloTamImpar;
-
 	public Integer[] arrayFullNuloTamPar;
 	public Integer[] arrayFullNuloTamImpar;
 
@@ -32,9 +29,6 @@ public class GeneralSetUp {
 
 		this.arrayNuloTamPar = new Integer[] { 1, null, 3, 5, 6, null, 8, null };
 		this.arrayNuloTamImpar = new Integer[] { 1, null, 3, 5, 6, null, 8, null, null };
-
-		this.arrayNegativoNuloTamPar = new Integer[] { -1, null, -3, 0, 6, null, 8, null };
-		this.arrayNegativoNuloTamImpar = new Integer[] { 1, null, 3, 0, -6, null, 8, null, -10 };
 
 		this.arrayFullNuloTamPar = new Integer[] { null, null, null, null, null, null };
 		this.arrayFullNuloTamImpar = new Integer[] { null, null, null, null, null, null, null };

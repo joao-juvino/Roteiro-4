@@ -2,7 +2,6 @@ package main.java.problems;
 
 import static org.junit.Assert.*;
 
-import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 
@@ -203,6 +202,27 @@ public class FloorTest {
 	public void testArrayFullZerosTamImparValorMenorExtremo() {
 		assertNull(this.floor.floor(this.gs.arrayFullZerosTamImpar, -3));
 	}
+	
+	@Test
+	public void testArrayNuloTamPar() {
+		assertNull(this.floor.floor(this.gs.arrayNuloTamPar, 3));
+	}
+	
+	@Test
+	public void testArrayNuloTamImpar() {
+		assertNull(this.floor.floor(this.gs.arrayNuloTamImpar, 3));
+	}
+	
+	@Test
+	public void testArrayFullNuloTamPar() {
+		assertNull(this.floor.floor(this.gs.arrayFullNuloTamPar, 3));
+	}
+	
+	@Test
+	public void testArrayFullNuloTamImpar() {
+		assertNull(this.floor.floor(this.gs.arrayFullNuloTamImpar, 3));
+	}
+
 }
 
 
