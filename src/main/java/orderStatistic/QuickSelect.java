@@ -50,15 +50,17 @@ public class QuickSelect<T extends Comparable<T>> {
 	/**
 	 * Implementação do quickSelect mediana de três
 	 * 
-	 * @param array o array de dados a procurar o k-esimo menor elemento este array
-	 *              normalmente nao esta ordenado
-	 * @param k     a ordem do elemento desejado. 1 significa primeiro menor
-	 *              elemento, 2 significa segundo menor elemento e assim por diante
-	 * @param leftIndex o index que delimita a partição do array à esquerda
+	 * @param array      o array de dados a procurar o k-esimo menor elemento este
+	 *                   array
+	 *                   normalmente nao esta ordenado
+	 * @param k          a ordem do elemento desejado. 1 significa primeiro menor
+	 *                   elemento, 2 significa segundo menor elemento e assim por
+	 *                   diante
+	 * @param leftIndex  o index que delimita a partição do array à esquerda
 	 * @param rightIndex o index que delimita a partição do array à direita
 	 * 
 	 * @return T o k-esimo menor valor do array
-	 * */
+	 */
 	private T quickSelectMedianOfThree(T[] array, int k, int leftIndex, int rightIndex) {
 		// Cálculo da mediana e ordenação dos valores: central e extremos do array
 		int middle = (rightIndex + leftIndex) / 2;
@@ -69,10 +71,11 @@ public class QuickSelect<T extends Comparable<T>> {
 			Util.swap(array, rightIndex, middle);
 		if (array[leftIndex].compareTo(array[middle]) > 0)
 			Util.swap(array, leftIndex, middle);
-		
-		// Colocação estratégica do valor central 
-		if (middle < rightIndex) Util.swap(array, middle, rightIndex - 1);
-		
+
+		// Colocação estratégica do valor central
+		if (middle < rightIndex)
+			Util.swap(array, middle, rightIndex - 1);
+
 		// Algoritmo recursivo do quickSelection
 		int pivot = this.partition(array, leftIndex, rightIndex);
 
@@ -87,13 +90,14 @@ public class QuickSelect<T extends Comparable<T>> {
 	/**
 	 * Implementação do particionamento do array
 	 * 
-	 * @param array o array de dados a procurar o k-esimo menor elemento este array
-	 *              normalmente nao esta ordenado
-	 * @param leftIndex o index que delimita a partição do array à esquerda
-	 * @param rightIndex o index que delimita a partição do array à direita 
+	 * @param array      o array de dados a procurar o k-esimo menor elemento este
+	 *                   array
+	 *                   normalmente nao esta ordenado
+	 * @param leftIndex  o index que delimita a partição do array à esquerda
+	 * @param rightIndex o index que delimita a partição do array à direita
 	 * 
 	 * @return i A posição ordenada do pivot
-	 * */
+	 */
 	private int partition(T[] array, int left, int right) {
 		T pivot = array[left];
 

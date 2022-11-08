@@ -1,5 +1,7 @@
 package orderStatistic;
 
+import java.util.Arrays;
+
 import util.Util;
 
 /**
@@ -27,14 +29,14 @@ import util.Util;
  */
 public class KLargestOrderStatisticsImpl<T extends Comparable<T>> implements KLargest<T> {
 
-	@Override
-  public T[] getKLargest(T[] array,  int k) {
+  @Override
+  public T[] getKLargest(T[] array, int k) {
     if (array.length == 0 || k > array.length || array == null || k <= 0 || this.containsNull(array))
-			return Arrays.copyOf(array, 0);
-    
+      return Arrays.copyOf(array, 0);
+
     T[] kLargest = Arrays.copyOf(array, k);
     int kLargestIndex = 0;
-    
+
     for (int i = k; i > 0; i--) {
       kLargest[kLargestIndex++] = orderStatistics(array, i);
     }
@@ -42,7 +44,7 @@ public class KLargestOrderStatisticsImpl<T extends Comparable<T>> implements KLa
     return kLargest;
   }
 
-/**
+  /**
    * Metodo que retorna a k-esima estatistica de ordem de um array, usando a ideia
    * de algum algoritmo de ordenacao visto em sala. Caso nao exista a k-esima
    * estatistica de ordem, entao retorna null.
@@ -53,7 +55,7 @@ public class KLargestOrderStatisticsImpl<T extends Comparable<T>> implements KLa
    * @param k
    * @return
    */
-  public T orderStatistics (T[] array,  int k) {
+  public T orderStatistics(T[] array, int k) {
     return this.quickSelectMedianOfThree(array, k, 0, array.length - 1);
   }
 
@@ -71,7 +73,7 @@ public class KLargestOrderStatisticsImpl<T extends Comparable<T>> implements KLa
    * 
    * @return T o k-esimo maior valor do array
    */
-  private T quickSelectMedianOfThree ( T[] array,  int k,  int leftIndex,  int rightIndex) {
+  private T quickSelectMedianOfThree(T[] array, int k, int leftIndex, int rightIndex) {
     // Cálculo da mediana e ordenação dos valores: central e extremos do array
     int middle = (rightIndex + leftIndex) / 2;
 
@@ -90,11 +92,11 @@ public class KLargestOrderStatisticsImpl<T extends Comparable<T>> implements KLa
     int pivot = this.partition(array, leftIndex, rightIndex);
 
     if (pivot + 1 > k)
-			return this.quickSelectMedianOfThree(array, k, leftIndex, pivot - 1);
-		else if (pivot + 1 < k)
-			return this.quickSelectMedianOfThree(array, k, pivot + 1, rightIndex);
-		else
-			return array[pivot]; // Caso base
+      return this.quickSelectMedianOfThree(array, k, leftIndex, pivot - 1);
+    else if (pivot + 1 < k)
+      return this.quickSelectMedianOfThree(array, k, pivot + 1, rightIndex);
+    else
+      return array[pivot]; // Caso base
   }
 
   /**
@@ -108,8 +110,8 @@ public class KLargestOrderStatisticsImpl<T extends Comparable<T>> implements KLa
    * 
    * @return i A posição ordenada do pivot
    */
-  private int partition ( T[] array,  int left,  int right) {
-     T pivot = array[left];
+  private int partition(T[] array, int left, int right) {
+    T pivot = array[left];
 
     int i = left;
     for (int j = left + 1; j <= right; j++) {
@@ -124,14 +126,17 @@ public class KLargestOrderStatisticsImpl<T extends Comparable<T>> implements KLa
   }
 
   /**
-	 * Método que verifica se um array contém um elemento com valor null
-	 * 
-	 * @param array, o array a ser verficado
-	 * @return true/false, boolean que indica se o array contém ou não o elemento null
-	 * */
-	private boolean containsNull(T[] array) {
-		for (int i = 0; i < array.length; i++) if (array[i] == null) return true;
-		return false;
-	}
+   * Método que verifica se um array contém um elemento com valor null
+   * 
+   * @param array, o array a ser verficado
+   * @return true/false, boolean que indica se o array contém ou não o elemento
+   *         null
+   */
+  private boolean containsNull(T[] array) {
+    for (int i = 0; i < array.length; i++)
+      if (array[i] == null)
+        return true;
+    return false;
+  }
 
 }
